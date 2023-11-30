@@ -1,0 +1,14 @@
+Nous avons l'interface IShape qui est une interface commune pouvant être appelé à chaque fois que l'on veut décorer un objet.
+
+Ensuite nous avons la class SimpleShape qui nous permet via sa fonction SimpleShape(string name) de créer une nouvelle forme via le nom passer en paramètre.
+Deplus, dans cette même class nous avons la fonction Draw qui nous permet de dessiné la forme souhaité via le nom passer en paramètre de fonction de SimpleShape à son appelle.
+
+Ensuite il y a une classe abstraite qui est ShapeD qui implémente l'interface IShape qui nous permets de décorer nos différentes shape via sa fonction ShapeD.
+
+Deplus nous avons la class RedShapeD qui implémente l'interface IShape qui nous permets donc de colorer la bordure de nos différentes shape en rouge via sa classe SetRedBorder en passant tout d'abord par la fonction Draw de RedShapeD.
+
+Enfin nous avons la fonction GroupShape qui implémente l'interface IShape qui nous permets de grouper les formes souhaiter dans un seul groupe et de les affichés par groupes via sa fonction Draw().
+
+Ici le dévelopeur à voulu utilisé le design patttern Decorator.
+
+Selon moi le programme est correct.
