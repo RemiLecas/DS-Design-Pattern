@@ -1,0 +1,49 @@
+1)
+L'utilisation de pattern de conception consiste à créer un schéma d'objet pour former une solution à un problème connu et fréquent.
+Les patterns designs sont constitué d'ensemble d'objetts décrits par des classes et des relations liant les objets.
+Ils répondent à des problèmes de conception de logiciel pour de la programmation objet. Ces solutions sont connues et éprouvées.
+Deplus, ils sont basés sur un ensembles de bonne pratiques de programmtions objets. 
+Enfin les designs patterns font le plus souvent intervenir des notions d'héritage, d'interface et de polymorphisme.
+
+
+2)
+Dans le dossier 01, le design pattern qui est utilisé est le Builder.
+Le pattern Builder permet de produire différentes variations ou représentations d'un objet complexes en utlisant le même code de construction sans à avoir à se soucier de son implémentation.
+Le design pattern Builder utilise un director, un builder(interface), plusieurs concreteBuilder qui utilise l'interface du builder pour fonctionner pour enfin nous retourner un product par concreteBuilder. 
+
+
+3)
+Le principale inconvénient du code présenté est qu'il recréer une nouvelle instance à chaque qu'on appelle notre PoorlyDesignedClass()
+Le design pattern qui pourrait être utilisé ici est le Singleton.
+Le Singleton est un pattern de conception de création qui construit une classe avec au maximum une instance tout en fournissant un point d'accès global à cette instance.
+Ce design pattern utilise un constructeur privé pour empêcher la création d'autre instance, ensuite elle utilise une variable privé pour stocker notre instance, enfin pour avoir accès à notre instance nous devons utiliser une méthode de retour.
+
+
+4)
+Nous avons une première class qui est PoorlyDesignedCode qui possède une méthode ProcessData() qui nous permet de déterminé dans quelle boucle la donnée doit elle passé pour être traiter.
+Il y a une interface avec IDataHandler qui permet de transmettre à toute les class qui l'appelle les méthode SetNextHandler() et HandleData().
+Ensuite nous avons la class IntDataHandler qui nous permet de traité la donné si c'est un int Via sa méthode HandleData(). Elle possède aussi une autre méthode qui est SetNextHandler() qui permet de passer au prochain handler la donnée si jamais elle ne correspond pas à un int.
+Il y a la class StringDataHandler et DoubleDataHandler qui possède les mêmes méthodes que pour IntDataHandler mais pour les string et les double.
+Enfin si jamais une data ne passe dans aucun des handler il y a un output spécifique qui ressort pour nous dire que la data ne passe dans aucun handler.
+Dans la méthode Main, on crée PoorlyDesignedCode(), ainsi que toutes nos instances de nos différents handler (IntDataHandler, StringDataHandler, DoubleDataHandler). Ensuite, nous crééons une chaîne de responsabilité avec SetNextHandler pour passer au handler suivant.
+
+Le développeur à voulu utilisé le design pattern Chain of Responsability.
+
+Selon moi le code n'est pas correct puisqu'il n'output pas la bonne chose indiqué en commentaire pour la parti du string. En effet, il est indiqué que cela doit sortir "Data processed by HandlerB" alors que ca nous ressort "Unable to handle the data" puisque la chaine de caractère "Hello" possède 5 caractères et que pour passer dans le handler il nous faut plus de 5 caractères.
+Cependant on pourrait modifié la vérification du double puisqu'elle revient à la même vérification pour le int juste avec des nombres un peu plus grand. Pour cela nous pouvons faire une vérification de si notre nombre possède une virgule ou non. Deplus, il n'y a aucune vérification pour les booleans ce qui pourrait être rajouter pour avoir un bon programme de test de donnée.
+Enfin nous pouvons réajuster la vérification pour les string en vérifiant si c'est le bon type et si la chaine de caractère est supérieur à 0.
+
+
+5)
+Nous avons l'interface IShape qui est une interface commune pouvant être appelé à chaque fois que l'on veut décorer un objet.
+Ensuite nous avons la classe SimpleShape qui nous permet via sa méthode SimpleShape(string name) de créer une nouvelle forme via le nom passer en paramètre.
+De plus, dans cette même classe nous avons la fonction Draw qui nous permet de dessiné la forme souhaité via le nom passer en paramètre de fonction de SimpleShape à son appel.
+Ensuite il y a une classe abstraite qui est ShapeD qui implémente l'interface IShape qui nous permets de décorer nos différentes shape via sa fonction ShapeD.
+Deplus nous avons la classe RedShapeD qui implémente l'interface IShape qui nous permets donc de colorer la bordure de nos différentes shape en rouge via sa classe SetRedBorder en passant tout d'abord par la fonction Draw de RedShapeD.
+Enfin nous avons la fonction GroupShape qui implémente l'interface IShape qui nous permets de grouper les formes souhaiter dans un seul groupe et de les affichés par groupes via sa fonction Draw().
+
+Ici le dévelopeur à voulu utilisé le design patttern Decorator.
+
+Selon moi le programme est correct.
+
+
